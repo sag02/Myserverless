@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  PythonProject
+
+  This is sample project
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  CodePipelineServerlessRepoPublishApp:
+    Type: 'AWS::Serverless::Application'
+    Properties:
+      Location:
+        ApplicationId: 'arn:aws:serverlessrepo:us-east-1:077246666028:applications/aws-serverless-codepipeline-serverlessrepo-publish'
+        SemanticVersion: 1.0.0
+  PythonSample:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: application/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Policies:
+        - AWSLambdaExecute # Managed Policy
+        - AmazonDynamoDBFullAccess
+        - Version: '2012-10-17' # Policy Document
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:GetObjectACL
+              Resource: 'arn:aws:s3:::sag-kathe-bucket/*'
+      Events:
+        PhotoUpload:
+          Type: S3
+          Properties:
+            Bucket: !Ref Bucket
+            Events: s3:ObjectCreated:*
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: sag-kathe-bucket

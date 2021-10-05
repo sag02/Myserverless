@@ -1,8 +1,8 @@
-version: 0.1
+version: 0.2
 phases:
   install:
     runtime-versions:
-        python: 2.7
+        python: 3.3
     commands:
 #      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 #      - nvm install node
@@ -10,6 +10,8 @@ phases:
   build:
     commands:
 #      - serverless
+      - /bin/bash echo "Hiii"
+      - /bin/bash serverless -v
       - sls deploy -v
 #      - sam package --template-file template.yaml --s3-bucket sag-kathe-bucket --output-template-file packaged-template.yml
 artifacts:

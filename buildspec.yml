@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-        python: 3.3
+        python: 3.8
     commands:
 #      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 #      - nvm install node

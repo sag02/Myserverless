@@ -6,7 +6,8 @@ phases:
   build:
     commands:
       - curl -o- -L https://slss.io/install | bash
-      - sam package --template-file template.yaml --s3-bucket sag-kathe-bucket --output-template-file packaged-template.yml
+      - sls deploy -v
+#      - sam package --template-file template.yaml --s3-bucket sag-kathe-bucket --output-template-file packaged-template.yml
 artifacts:
   files:
     - packaged-template.yml

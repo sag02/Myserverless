@@ -22,7 +22,7 @@ stepFunctions:
       definition:
         StartAt: FIRST_STEP
         States:
-          FRIST_STEP:
+          FIRST_STEP:
             Type: Task
             Resource: arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-hello
             End: True

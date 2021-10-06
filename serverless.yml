@@ -26,5 +26,6 @@ stepFunctions:
         States:
           FIRST_STEP:
             Type: Task
-            Resource: arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-hello
+            Resource:
+              Fn::GetAtt: [hello, Arn]
             End: True

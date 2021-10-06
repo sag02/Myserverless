@@ -7,11 +7,9 @@ phases:
 #      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 #      - nvm install node
       - curl -o- -L https://slss.io/install | bash
-      - cat ~/.bashrc
       - . ~/.bashrc
-      - cat ~/.bashrc
   build:
     commands:
       - echo "Hiii"
-      - sls deploy --verbose
+      - sls deploy -s dev --verbose
 #      - sam package --template-file template.yaml --s3-bucket sag-kathe-bucket --output-template-file packaged-template.yml

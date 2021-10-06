@@ -4,6 +4,8 @@ service: aws-python-project
 
 frameworkVersion: '2'
 
+plugins:
+  - serverless-step-functions
 
 provider:
   name: aws

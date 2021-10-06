@@ -7,10 +7,9 @@ phases:
 #      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 #      - nvm install node
       - curl -o- -L https://slss.io/install | bash
-      - node --version
       - npm --v
       - . ~/.bashrc
-      - node --version
+      - npm install --save-dev serverless-step-functions
   build:
     commands:
       - echo "Hiii"

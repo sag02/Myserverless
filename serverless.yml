@@ -15,20 +15,14 @@ functions:
     handler: handler.hello
 
 
-resources:
-  Resources:
+stepFunctions:
+  stateMachines:
     SampleStepFunction:
-      Type: AWS::StepFunctions::StateMachine
-      Properties:
-        StateMachineName: HellowWorld-serverless
-        DefinationString: |-
-          {
-            "StartAt": "HelloWorld",
-            "States": {
-              "HelloWorld": {
-              "Type": "Task",
-              "Resource": "arn:aws:lambda:!Ref "AWS::Region":!Ref "AWS::AccountId":function:${self:service}-${opt:stage}-hello",
-              "End": true
-              }
-            }
-          }
+      name: HellowWorld-serverless
+      definition:
+        StartAt: FIRST_STEP
+        States:
+          FRIST_STEP:
+            Type: Task
+            Resource: arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-hello
+            End: True

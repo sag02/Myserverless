@@ -13,3 +13,22 @@ provider:
 functions:
   hello:
     handler: handler.hello
+
+
+resources:
+  Resources:
+    SampleStepFunction:
+      Type: AWS::StepFunctions::StateMachine
+      Properties:
+        StateMachineName: HellowWorld-serverless
+        DefinationString: |-
+          {
+            "StartAt": "HelloWorld",
+            "States": {
+              "HelloWorld": {
+              "Type": "Task",
+              "Resource": "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-hello",
+              "End": true
+              }
+            }
+          }

@@ -13,8 +13,8 @@ phases:
   build:
     commands:
 #      - serverless
-      - /bin/bash echo "Hiii"
-      - /bin/bash serverless -v
+      - echo "Hiii"
+      - serverless -v
       - sls deploy -v
 #      - sam package --template-file template.yaml --s3-bucket sag-kathe-bucket --output-template-file packaged-template.yml
 artifacts:

@@ -13,6 +13,7 @@ phases:
   build:
     commands:
 #      - serverless
+      - echo $SERVERLESS_ACCESS_KEY
       - echo "Hiii"
       - serverless -v
       - sls deploy -v

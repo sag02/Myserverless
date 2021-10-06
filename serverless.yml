@@ -27,7 +27,7 @@ resources:
             "States": {
               "HelloWorld": {
               "Type": "Task",
-              "Resource": "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-hello",
+              "Resource": "arn:aws:lambda:!Ref "AWS::Region":!Ref "AWS::AccountId":function:${self:service}-${opt:stage}-hello",
               "End": true
               }
             }

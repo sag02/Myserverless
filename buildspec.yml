@@ -8,8 +8,7 @@ phases:
 #      - nvm install node
       - curl -o- -L https://slss.io/install | bash
       - node --version
-      - apt install nodejs npm
-      - sudo apt install nodejs
+      - npm --v
       - . ~/.bashrc
       - node --version
   build:

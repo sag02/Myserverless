@@ -12,12 +12,6 @@ phases:
       - cat ~/.bashrc
   build:
     commands:
-#      - serverless
-      - echo $SERVERLESS_ACCESS_KEY
       - echo "Hiii"
-      - serverless -v
-      - sls deploy -v
+      - sls deploy --verbose
 #      - sam package --template-file template.yaml --s3-bucket sag-kathe-bucket --output-template-file packaged-template.yml
-artifacts:
-  files:
-    - packaged-template.yml

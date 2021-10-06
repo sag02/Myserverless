@@ -8,7 +8,7 @@ phases:
 #      - nvm install node
       - curl -o- -L https://slss.io/install | bash
       - cat ~/.bashrc
-      - source ~/.bashrc
+      - . ~/.bashrc
       - cat ~/.bashrc
   build:
     commands:
